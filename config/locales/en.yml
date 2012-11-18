@@ -1,0 +1,6 @@
+en:
+  proposals:
+    submit: "Submit Proposal"
+
+    create:
+      success: "Proposal created successfuly"
