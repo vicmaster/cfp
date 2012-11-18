@@ -1,3 +1,3 @@
-module Cfp
+module CFP
   VERSION = "0.0.1"
 end

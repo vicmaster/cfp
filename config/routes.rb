@@ -1,2 +1,2 @@
-Cfp::Engine.routes.draw do
+CFP::Engine.routes.draw do
 end

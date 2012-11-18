@@ -1,17 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-# Maintain your gem's version:
 require "cfp/version"
 
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "cfp"
-  s.version     = Cfp::VERSION
+  s.version     = CFP::VERSION
   s.authors     = ["TODO: Your name"]
   s.email       = ["TODO: Your email"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Cfp."
-  s.description = "TODO: Description of Cfp."
+  s.summary     = "TODO: Summary of CFP."
+  s.description = "TODO: Description of CFP."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 

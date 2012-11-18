@@ -1,4 +1,4 @@
 require "cfp/engine"
 
-module Cfp
+module CFP
 end
