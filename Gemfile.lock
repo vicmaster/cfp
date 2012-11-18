@@ -153,6 +153,7 @@ DEPENDENCIES
   cfp!
   cucumber-rails
   database_cleaner
+  devise
   jquery-rails
   rspec-rails
   sqlite3
