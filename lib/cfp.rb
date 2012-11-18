@@ -1,5 +1,5 @@
 require "cfp/engine"
 
-module CFP
+module Cfp
   autoload :User, 'cfp/user'
 end

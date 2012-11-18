@@ -4,12 +4,12 @@ require "cfp/version"
 
 Gem::Specification.new do |s|
   s.name        = "cfp"
-  s.version     = CFP::VERSION
+  s.version     = Cfp::VERSION
   s.authors     = ["TODO: Your name"]
   s.email       = ["TODO: Your email"]
   s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of CFP."
-  s.description = "TODO: Description of CFP."
+  s.summary     = "TODO: Summary of Cfp."
+  s.description = "TODO: Description of Cfp."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 

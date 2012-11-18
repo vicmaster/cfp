@@ -1,4 +1,4 @@
-module CFP
+module Cfp
   module ApplicationHelper
   end
 end

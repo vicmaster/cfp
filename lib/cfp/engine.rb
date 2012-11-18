@@ -1,5 +1,5 @@
-module CFP
+module Cfp
   class Engine < ::Rails::Engine
-    isolate_namespace CFP
+    isolate_namespace Cfp
   end
 end

@@ -62,6 +62,6 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 module EngineRoutesHelper
-  include CFP::Engine.routes.url_helpers
+  include Cfp::Engine.routes.url_helpers
 end
 World(EngineRoutesHelper)

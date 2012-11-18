@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  include CFP::User
+  include Cfp::User
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

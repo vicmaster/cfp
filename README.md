@@ -1,4 +1,4 @@
-# CFP: Call for papers
+# Cfp: Call for papers
 
 Call For Papers Rails Engine that we use to organize [MagmaRails](http://www.magmarails.com).
 

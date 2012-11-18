@@ -2,5 +2,5 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  mount CFP::Engine => "/cfp"
+  mount Cfp::Engine => "/cfp"
 end
