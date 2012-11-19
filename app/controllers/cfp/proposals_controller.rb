@@ -2,7 +2,7 @@ require_dependency "cfp/application_controller"
 
 module Cfp
   class ProposalsController < ApplicationController
-    before_filter :load_proposal, :only => [:edit, :update]
+    before_filter :load_proposal, :only => [:edit, :update, :destroy]
 
     def index
       @proposals = Proposal.all
@@ -30,6 +30,11 @@ module Cfp
       else
         render :action => "edit"
       end
+    end
+
+    def destroy
+      @proposal.destroy
+      redirect_to :proposals, :notice => t('proposals.deleted.seccess')
     end
 
     private

@@ -1,6 +1,8 @@
 en:
   actions:
     edit: "Edit"
+    delete: "Delete"
+    sure: "Are you sure?"
 
   proposals:
     submit: "Submit Proposal"

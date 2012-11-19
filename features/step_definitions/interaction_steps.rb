@@ -29,3 +29,7 @@ When /^I follow "(.*?)" for "(.*?)"$/ do |link_text, row_text|
     click_link link_text
   end
 end
+
+Then /^I should not see "(.*?)"$/ do |expectation|
+  page.should_not have_content expectation
+end

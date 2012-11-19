@@ -29,3 +29,8 @@ Feature: Manage My Proposals
     Then I should be on the "proposals" page
     And I should see "A very cool talk"
 
+  Scenario: Delete a proposal
+    Given a proposal titled "The great Ruby talk"
+    When I go to the "proposals" page
+    And I follow "Delete" for "The great Ruby talk"
+    Then I should not see "The great Ruby talk"
