@@ -1,6 +1,10 @@
 en:
+  actions:
+    edit: "Edit"
+
   proposals:
     submit: "Submit Proposal"
+    edit: "Edit Proposal"
 
     create:
       success: "Proposal created successfuly"
