@@ -5,7 +5,7 @@ module Cfp
     before_filter :load_proposal, :only => [:edit, :update, :destroy]
 
     def index
-      @proposals = Proposal.all
+      @proposals = current_user.proposals
     end
 
     def new
@@ -14,6 +14,7 @@ module Cfp
 
     def create
       @proposal = Proposal.new proposal_params[:proposal]
+      @proposal.user = current_user
       if @proposal.save
         redirect_to :proposals, :notice => t('proposals.created.success')
       else

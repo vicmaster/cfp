@@ -4,6 +4,7 @@ end
 
 Given /^a proposal titled "(.*?)"$/ do |proposal_title|
   @proposal = Cfp::Proposal.new
+  @proposal.user = @user
   @proposal.title = proposal_title
   @proposal.abstract = Faker::Lorem.paragraphs(3)
 
