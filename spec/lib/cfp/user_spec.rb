@@ -4,7 +4,7 @@ describe Cfp::User do
   subject do
     user       = User.new
     user.roles = []
-  	user
+    user
   end
 
   describe "#setup_roles" do

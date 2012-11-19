@@ -17,12 +17,15 @@ Gem::Specification.new do |s|
   s.add_dependency "haml-rails"
   s.add_dependency "rails", "~> 3.2.9"
 
+  s.add_development_dependency "autotest"
+  s.add_development_dependency "autotest-growl"
   s.add_development_dependency "capybara"
   s.add_development_dependency "cucumber-rails"
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency "faker"
   s.add_development_dependency "launchy"
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "spork"
 
   s.add_development_dependency "sqlite3"
 end
