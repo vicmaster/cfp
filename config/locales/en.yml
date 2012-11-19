@@ -7,6 +7,12 @@ en:
   proposals:
     submit: "Submit Proposal"
     edit: "Edit Proposal"
+    edited:
+      success: "The Proposal was edited succesfully"
+    created:
+      success: "The Proposal was created succesfully"
+    deleted:
+      success: "The Proposal was deleted succesfully"
 
     create:
       success: "Proposal created successfuly"

@@ -34,7 +34,7 @@ module Cfp
 
     def destroy
       @proposal.destroy
-      redirect_to :proposals, :notice => t('proposals.deleted.seccess')
+      redirect_to :proposals, :notice => t('proposals.deleted.success')
     end
 
     private
