@@ -43,3 +43,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+class User < ActiveRecord::Base
+  include Cfp::User
+end

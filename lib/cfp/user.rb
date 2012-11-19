@@ -15,6 +15,10 @@ module Cfp
       roles.include?(:reviewer)
     end
 
+    def is_admin?
+      roles.include?(:admin)
+    end
+
     module ClassMethods
 
     end

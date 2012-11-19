@@ -1,14 +1,10 @@
 require "spec_helper"
 
 describe Cfp::User do
-  let(:klass) do
-    klass            = Class.new(ActiveRecord::Base)
-    klass.table_name = 'users'
-    klass.send(:include, Cfp::User)
-  end
-
   subject do
-    klass.new
+    user       = User.new
+    user.roles = []
+  	user
   end
 
   describe "#setup_roles" do
@@ -49,6 +45,17 @@ describe Cfp::User do
       it "returns false" do
         subject.can_review?.should be_false
       end
+    end
+  end
+
+  describe "#is_admin?" do
+    context "has the admin role" do
+      before { subject.roles = [:admin] }
+      specify { subject.is_admin?.should be_true }
+    end
+
+    context "has no admin role" do
+      specify { subject.is_admin?.should be_false }
     end
   end
 end
