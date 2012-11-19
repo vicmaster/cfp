@@ -1,5 +1,6 @@
 %h1 Proposals
 
-= link_to t('proposals.submit'), new_proposal_path
+= link_to t('proposals.submit'), new_proposal_path, :class => "btn btn-primary"
 
-= render @proposals
+%table.table.table-striped
+  = render @proposals

@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Cfp
+    %link{:href => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css", :rel => "stylesheet"}/
+    = stylesheet_link_tag    "cfp/application", :media => "all"
+    = javascript_include_tag "cfp/application"
+    = csrf_meta_tags
+  %body
+    .container
+      = render 'navbar'
+      = yield
