@@ -33,3 +33,7 @@ end
 Then /^I should not see "(.*?)"$/ do |expectation|
   page.should_not have_content expectation
 end
+
+When /^I press the "(.*?)" button$/ do |button|
+  click_button button
+end

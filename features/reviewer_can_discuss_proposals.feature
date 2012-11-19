@@ -1,0 +1,17 @@
+Feature: Reviewer can discuss proposals
+
+  Background: A proposal exists
+    Given a regular User exists
+    And a proposal titled "The great Ruby talk"
+    And a reviewer User exists
+    And that user is logged in
+
+  Scenario: Comment on a proposal
+    Given I am on the "proposals" page
+    When I follow "Discuss" for "The great Ruby talk"
+    And I follow "Comment"
+    And I fill in the following:
+      | Comment | The comment that I just made |
+    And I press the "Create Comment" button
+    Then I should be on the coments page for the proposal
+    And I should see "The comment that I just made"

@@ -2,17 +2,20 @@ module Cfp
   class Proposal < ActiveRecord::Base
     attr_accessible :title, :abstract, :tags, :level
 
-    belongs_to :user
+    belongs_to :user, :class_name => "::User"
+    has_many :comments
 
     validates :title, :presence => true
     validates :abstract, :presence => true
+
+    delegate :email, :to => :user, :prefix => true
 
     def self.scoped_for(user)
       case
       when user.can_review?
         scoped
       else
-        where(:user => user)
+        user.proposals
       end
     end
 

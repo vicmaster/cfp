@@ -5,7 +5,7 @@ module Cfp
     before_filter :load_proposal, :only => [:edit, :update, :destroy]
 
     def index
-      @proposals = current_user.proposals
+      @proposals = Proposal.scoped_for(current_user)
     end
 
     def new

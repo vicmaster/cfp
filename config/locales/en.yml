@@ -3,6 +3,8 @@ en:
     edit: "Edit"
     delete: "Delete"
     sure: "Are you sure?"
+    discuss: "Discuss"
+    comment: "Comment"
 
   proposals:
     submit: "Submit Proposal"
@@ -16,3 +18,6 @@ en:
 
     create:
       success: "Proposal created successfuly"
+
+  comments:
+    new_for: "New Comment for"

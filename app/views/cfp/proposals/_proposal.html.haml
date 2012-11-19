@@ -1,4 +1,13 @@
 = content_tag_for :tr, proposal, :class => "row" do
   %td= proposal.title
-  %td= link_to t('actions.edit'), edit_proposal_path(proposal)
-  %td= link_to t('actions.delete'), proposal_path(proposal), :method => :delete, :confirm => t('actions.sure')
+  - if proposal.can_be_edited_by?(current_user)
+    %td= link_to t('actions.edit'), edit_proposal_path(proposal)
+    %td= link_to t('actions.delete'), proposal_path(proposal), :method => :delete, :confirm => t('actions.sure')
+  - else
+    %td
+      Edit
+    %td
+      Delete
+  - if current_user.can_review?
+    %td
+      = link_to t('actions.discuss'), proposal_comments_path(proposal)

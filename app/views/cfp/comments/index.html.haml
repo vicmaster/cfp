@@ -1,0 +1,16 @@
+%h1= @proposal.title
+.speaker
+  = @proposal.user_email
+.abstract
+  = @proposal.abstract
+.level
+  = @proposal.level
+.tags
+  = @proposal.tags
+
+.row
+  .span12
+    = link_to t('actions.comment'), new_proposal_comment_path(@proposal), :class => 'btn btn-primary'
+
+%table.table.table-striped
+  = render @comments

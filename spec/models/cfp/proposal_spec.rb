@@ -45,7 +45,7 @@ describe Cfp::Proposal do
     context "regular user" do
       it "returns only his proposals" do
         results = mock
-        subject.class.should_receive(:where).with(:user => user).and_return results
+        user.should_receive(:proposals).and_return results
         subject.class.scoped_for(user).should be results
       end
     end

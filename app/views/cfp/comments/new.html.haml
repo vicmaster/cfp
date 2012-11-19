@@ -1,0 +1,9 @@
+%h1 #{t('comments.new_for')} #{@proposal.title}
+
+.row
+  .span5
+    = form_for [:proposal, @comment] do |form|
+      = render 'form', :form => form
+
+      .form-actions
+        = form.submit :class => "btn btn-primary"
