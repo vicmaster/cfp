@@ -6,6 +6,11 @@ require 'rspec/autorun'
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
+require 'cfp'
+
+ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
+require './spec/dummy/db/schema.rb'
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
