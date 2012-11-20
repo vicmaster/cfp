@@ -50,4 +50,14 @@ describe Cfp::Proposal do
       end
     end
   end
+
+  describe "#average_ranking" do
+    it "returns the AR average for the value column on all proposal rankings" do
+      rankings = mock
+      rankings.should_receive(:average).with(:value)
+      subject.stub(:ranks).and_return rankings
+
+      subject.average_ranking
+    end
+  end
 end

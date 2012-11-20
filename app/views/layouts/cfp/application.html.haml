@@ -2,10 +2,17 @@
 %html
   %head
     %title Cfp
-    %link{:href => "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css", :rel => "stylesheet"}/
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"
+
     = stylesheet_link_tag    "cfp/application", :media => "all"
     = javascript_include_tag "cfp/application"
     = csrf_meta_tags
+
+    = yield :scripts
+
   %body
     .container
       = render 'navbar'

@@ -5,6 +5,7 @@ en:
     sure: "Are you sure?"
     discuss: "Discuss"
     comment: "Comment"
+    back_to_proposals: "Back to Proposals"
 
   proposals:
     submit: "Submit Proposal"

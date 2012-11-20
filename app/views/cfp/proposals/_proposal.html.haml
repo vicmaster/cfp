@@ -10,4 +10,6 @@
       Delete
   - if current_user.can_review?
     %td
+      = proposal.average_ranking
+    %td
       = link_to t('actions.discuss'), proposal_comments_path(proposal)

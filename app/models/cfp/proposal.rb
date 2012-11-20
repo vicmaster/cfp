@@ -1,9 +1,11 @@
 module Cfp
   class Proposal < ActiveRecord::Base
+    RANK_SCALE = (0..2).to_a
     attr_accessible :title, :abstract, :tags, :level
 
     belongs_to :user, :class_name => "::User"
     has_many :comments
+    has_many :ranks
 
     validates :title, :presence => true
     validates :abstract, :presence => true
@@ -21,6 +23,10 @@ module Cfp
 
     def can_be_edited_by?(user)
       (self.user == user) || (user.is_admin?)
+    end
+
+    def average_ranking
+      ranks.average(:value)
     end
   end
 end

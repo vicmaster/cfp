@@ -1,16 +1,30 @@
-%h1= @proposal.title
-.speaker
-  = @proposal.user_email
-.abstract
-  = @proposal.abstract
-.level
-  = @proposal.level
-.tags
-  = @proposal.tags
+.row
+  .span6
+    %h1= @proposal.title
+    .speaker
+      = @proposal.user_email
+    .abstract
+      = @proposal.abstract
+    .level
+      = @proposal.level
+    .tags
+      = @proposal.tags
+
+  #ranking.span6
+    = label_tag :rank, "Rank"
+    = select_tag "rank", options_for_select(Cfp::Proposal::RANK_SCALE)
 
 .row
-  .span12
+  .span6
     = link_to t('actions.comment'), new_proposal_comment_path(@proposal), :class => 'btn btn-primary'
+  .span6
+    = link_to t('actions.back_to_proposals'), proposals_path
 
 %table.table.table-striped
   = render @comments
+
+- content_for :scripts do
+  :javascript
+    $(document).ready(function () {
+      window.app = new Cfp.Views.RankingView();
+    });

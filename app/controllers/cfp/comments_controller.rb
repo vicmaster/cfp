@@ -2,11 +2,11 @@ require_dependency "cfp/application_controller"
 
 module Cfp
   class CommentsController < ApplicationController
-    before_filter :load_proposal
     before_filter :check_for_reviewer
+    before_filter :load_proposal
 
     def index
-  		@comments = @proposal.comments
+      @comments = @proposal.comments
     end
 
     def new
@@ -23,13 +23,12 @@ module Cfp
       end
     end
 
-    private
-    def load_proposal
-      @proposal = Proposal.find(params[:proposal_id])
-    end
-
     def check_for_reviewer
       redirect_to :proposals unless current_user.can_review?
+    end
+
+    def load_proposal
+      @proposal = Proposal.find(params[:proposal_id])
     end
   end
 end

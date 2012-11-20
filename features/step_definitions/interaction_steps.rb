@@ -37,3 +37,7 @@ end
 When /^I press the "(.*?)" button$/ do |button|
   click_button button
 end
+
+When /^I choose "(.*?)" from "(.*?)"$/ do |value, field|
+  select value, :from => field
+end

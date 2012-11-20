@@ -15,3 +15,12 @@ Feature: Reviewer can discuss proposals
     And I press the "Create Comment" button
     Then I should be on the coments page for the proposal
     And I should see "The comment that I just made"
+
+  @javascript
+  Scenario: Rate a proposal
+    Given I am on the "proposals" page
+    When I follow "Discuss" for "The great Ruby talk"
+    And I choose "2" from "Rank"
+    And I follow "Back to Proposals"
+    Then I should be on the "proposals" page
+    And I should see "2.0"
