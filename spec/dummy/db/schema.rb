@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20121120192955) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "ranks", :force => true do |t|
+  create_table "cfp_ranks", :force => true do |t|
     t.integer  "user_id"
     t.integer  "proposal_id"
     t.integer  "value"
