@@ -28,7 +28,7 @@ load 'rails/tasks/engine.rake'
 
 task :cucumber => "app:cucumber"
 task :default => [:spec, :cucumber]
-
+task 'db:test:prepare' => 'app:db:test:prepare'
 
 
 Bundler::GemHelper.install_tasks
