@@ -26,7 +26,7 @@ module Cfp
     end
 
     def update
-      if @proposal.update_attributes(proposal_params[:proposal])
+      if @proposal.can_be_edited_by?(current_user) && @proposal.update_attributes(proposal_params[:proposal])
         redirect_to :proposals, :notice => t('proposals.edited.success')
       else
         render :action => "edit"
@@ -34,7 +34,7 @@ module Cfp
     end
 
     def destroy
-      @proposal.destroy
+      @proposal.destroy if @proposal.can_be_edited_by?(current_user)
       redirect_to :proposals, :notice => t('proposals.deleted.success')
     end
 
