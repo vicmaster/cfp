@@ -41,3 +41,9 @@ end
 When /^I choose "(.*?)" from "(.*?)"$/ do |value, field|
   select value, :from => field
 end
+
+Then /^I should see the following:$/ do |table|
+  table.raw.each do |row|
+    page.should have_content row.first
+  end
+end

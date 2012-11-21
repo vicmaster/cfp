@@ -1,0 +1,6 @@
+- [:name, :title, :company].each do |field|
+  = form.label field
+  = form.text_field field, :class => "input-block-level title"
+
+= form.label :bio
+= form.text_area :bio, :rows => 7, :class => "input-block-level title"

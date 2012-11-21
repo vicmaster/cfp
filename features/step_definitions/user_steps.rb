@@ -2,7 +2,7 @@ Given /^a regular User exists$/ do
   @user = User.new(:email => Faker::Internet.email)
   @user.password              = '123456'
   @user.password_confirmation = @user.password
-  @user.profile = Cfp::Profile.create!
+  @user.profile = Cfp::Profile.create!(:name => Faker::Name.name, :bio => Faker::Lorem.paragraph)
   @user.save
 
 end
