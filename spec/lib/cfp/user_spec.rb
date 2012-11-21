@@ -58,4 +58,23 @@ describe Cfp::User do
       specify { subject.is_admin?.should be_false }
     end
   end
+
+  describe "#should_create_profile?" do
+    context "the user is reviewer" do
+      before  { subject.roles = [:reviewer] }
+      specify { subject.should_create_profile?.should be_false }
+    end
+
+    context "the user is admin" do
+      before  { subject.roles = [:admin] }
+      specify { subject.should_create_profile?.should be_false }
+    end
+
+    context "user has profile" do
+      before { subject.profile = Cfp::Profile.new }
+      specify { subject.should_create_profile?.should be_false }
+    end
+
+    specify { subject.should_create_profile?.should be_true }
+  end
 end

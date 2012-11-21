@@ -3,6 +3,7 @@ module Cfp
     def self.included(base)
       base.send(:before_validation, :setup_roles)
       base.send(:has_many, :proposals, :class_name => "Cfp::Proposal")
+      base.send(:has_one, :profile, :class_name => "Cfp::Profile")
       base.send(:serialize, :roles)
       base.send(:extend, ClassMethods)
     end
@@ -17,6 +18,17 @@ module Cfp
 
     def is_admin?
       roles.include?(:admin)
+    end
+
+    def should_create_profile?
+      case
+      when roles.include?(:admin) || roles.include?(:reviewer)
+        false
+      when !profile.nil?
+        false
+      else
+        true
+      end
     end
 
     module ClassMethods

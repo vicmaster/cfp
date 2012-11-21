@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120192955) do
+ActiveRecord::Schema.define(:version => 20121121020200) do
 
   create_table "cfp_comments", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(:version => 20121120192955) do
     t.text     "body"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "cfp_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "title"
+    t.string   "company"
+    t.text     "bio"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "cfp_proposals", :force => true do |t|
