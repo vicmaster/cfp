@@ -1,7 +1,7 @@
 require_dependency "cfp/application_controller"
 
 module Cfp
-  class RanksController < ApplicationController
+  class RanksController < Controller
     respond_to :json
     before_filter :check_for_reviewer, :load_proposal
 
