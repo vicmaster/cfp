@@ -1,0 +1,38 @@
+es:
+  actions:
+    edit: "Editar"
+    delete: "Eliminar"
+    sure: "¿Seguro?"
+    discuss: "Discutir"
+    comment: "Comentar"
+    back_to_proposals: "Regresar a Propuestas"
+
+  proposals:
+    proposals: "Propuestas"
+    submit: "Enviar Propuesta"
+    edit: "Editar Propuesta"
+    edited:
+      success: "La Propuesta fue editada con éxito"
+    created:
+      success: "La Propuesta fue creada con éxito"
+    deleted:
+      success: "La Propuesta fue eliminada con éxito"
+
+  comments:
+    new_for: "Nuevo comentario para"
+
+  activerecord:
+    models:
+      cfp/proposal: "Propuesta"
+
+  helpers:
+    label:
+      proposal:
+        title: "Título"
+        level: "Nivel"
+        abstract: "Resumen"
+        tags: "Etiquetas"
+
+    submit:
+      create: "Crear %{model}"
+      update: "Actualizar %{model}"

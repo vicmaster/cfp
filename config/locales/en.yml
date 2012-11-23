@@ -8,6 +8,7 @@ en:
     back_to_proposals: "Back to Proposals"
 
   proposals:
+    proposals: "Proposals"
     submit: "Submit Proposal"
     edit: "Edit Proposal"
     edited:
@@ -17,12 +18,10 @@ en:
     deleted:
       success: "The Proposal was deleted succesfully"
 
-    create:
-      success: "Proposal created successfuly"
-
   comments:
     new_for: "New Comment for"
 
   profile:
     edited:
       success: "Your profile has been updated succesfully"
+
