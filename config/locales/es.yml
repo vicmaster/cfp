@@ -17,6 +17,7 @@ es:
       success: "La Propuesta fue creada con éxito"
     deleted:
       success: "La Propuesta fue eliminada con éxito"
+    rank: "Calificación"
 
   comments:
     new_for: "Nuevo comentario para"
@@ -24,6 +25,8 @@ es:
   activerecord:
     models:
       cfp/proposal: "Propuesta"
+    models:
+      cfp/comment: "Comentario"
 
   helpers:
     label:
@@ -32,6 +35,8 @@ es:
         level: "Nivel"
         abstract: "Resumen"
         tags: "Etiquetas"
+      comment:
+        body: "Comentario"
 
     submit:
       create: "Crear %{model}"

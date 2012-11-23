@@ -11,7 +11,7 @@
       = @proposal.tags
 
   #ranking.span6
-    = label_tag :rank, "Rank"
+    = label_tag :rank, t('proposals.rank')
     = select_tag "rank", options_for_select(Cfp::Proposal::RANK_SCALE)
 
 .row

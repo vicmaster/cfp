@@ -17,6 +17,7 @@ en:
       success: "The Proposal was created succesfully"
     deleted:
       success: "The Proposal was deleted succesfully"
+    rank: "Rank"
 
   comments:
     new_for: "New Comment for"
@@ -25,3 +26,7 @@ en:
     edited:
       success: "Your profile has been updated succesfully"
 
+  helpers:
+    label:
+      comment:
+        body: "Comment"
