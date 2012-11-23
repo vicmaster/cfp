@@ -1,0 +1,9 @@
+%h1 Edit Profile
+
+.row
+  .span5
+    = form_for @profile, :url => profile_path do |form|
+      = render 'form', :form => form
+
+      .form-actions
+        = form.submit :class => 'btn btn-primary'

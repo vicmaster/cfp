@@ -1,5 +1,6 @@
 %h1 Profile
 
+
 .row
   .span5= @profile.name
 .row
@@ -8,3 +9,5 @@
   .span5= @profile.title
 .row
   .span5= @profile.bio
+.row
+  .span5= link_to 'Edit', edit_profile_path, :class => 'btn btn-primary'

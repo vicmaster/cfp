@@ -19,3 +19,20 @@ Feature: User profiles
        | Crowd Interactive      |
        | CEO                    |
        | The greatest man alive |
+
+  Scenario: Edit a proposal
+    Given the user has a profile
+    When I go to the "profile" page
+    And I follow "Edit"
+    And I fill in the following:
+       | Name    | John Mellencamp        |
+       | Company | Crowd Interactive      |
+       | Title   | CEO                    |
+       | Bio     | The greatest man alive |
+    And I press the "Update Profile" button
+    Then I should be on the "profile" page
+    And I should see the following:
+       | John Mellencamp        |
+       | Crowd Interactive      |
+       | CEO                    |
+       | The greatest man alive |

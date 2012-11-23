@@ -2,9 +2,9 @@ Given /^a regular User exists$/ do
   @user = User.new(:email => Faker::Internet.email)
   @user.password              = '123456'
   @user.password_confirmation = @user.password
-  @user.profile = Cfp::Profile.create!(:name => Faker::Name.name, :bio => Faker::Lorem.paragraph)
   @user.save
 
+  step "the user has a profile"
 end
 
 Given /^that user is logged in$/ do
@@ -24,5 +24,10 @@ end
 Given /^a regular User with no profile exists$/ do
   step "a regular User exists"
   @user.profile = nil
+  @user.save!
+end
+
+Given /^the user has a profile$/ do
+  @user.profile = Cfp::Profile.create!(:name => Faker::Name.name, :bio => Faker::Lorem.paragraph)
   @user.save!
 end
