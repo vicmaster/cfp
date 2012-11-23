@@ -6,6 +6,7 @@ class CreateCfpProfiles < ActiveRecord::Migration
       t.string :title
       t.string :company
       t.text :bio
+      t.string :locale
 
       t.timestamps
     end
