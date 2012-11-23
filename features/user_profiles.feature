@@ -12,6 +12,7 @@ Feature: User profiles
        | Company | Crowd Interactive      |
        | Title   | CEO                    |
        | Bio     | The greatest man alive |
+    And I choose "en" from "Locale"
     And I press the "Create Profile" button
     Then I should be on the "profile" page
     And I should see the following:

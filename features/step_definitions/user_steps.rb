@@ -28,6 +28,6 @@ Given /^a regular User with no profile exists$/ do
 end
 
 Given /^the user has a profile$/ do
-  @user.profile = Cfp::Profile.create!(:name => Faker::Name.name, :bio => Faker::Lorem.paragraph)
+  @user.profile = Cfp::Profile.create!(:name => Faker::Name.name, :bio => Faker::Lorem.paragraph, :locale => 'en')
   @user.save!
 end

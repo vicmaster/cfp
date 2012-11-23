@@ -27,7 +27,7 @@ module Cfp
 
     def update
       if @profile.update_attributes params[:profile]
-        redirect_to :profile, :notice => t('profile.edit.success')
+        redirect_to :profile, :notice => t('profile.edited.success')
       else
         render :action => :edit
       end
