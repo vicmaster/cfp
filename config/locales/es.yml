@@ -22,11 +22,10 @@ es:
   comments:
     new_for: "Nuevo comentario para"
 
-  activerecord:
-    models:
-      cfp/proposal: "Propuesta"
-    models:
-      cfp/comment: "Comentario"
+  profile:
+    profile: "Perfil"
+    edited:
+      success: "Su perfil ha sido actualizado"
 
   helpers:
     label:
@@ -37,7 +36,18 @@ es:
         tags: "Etiquetas"
       comment:
         body: "Comentario"
+      profile:
+        name: "Nombre"
+        company: "Empresa"
+        title: "Puesto"
+        locale: "Lenguaje"
 
     submit:
       create: "Crear %{model}"
       update: "Actualizar %{model}"
+
+  activerecord:
+    models:
+      cfp/proposal: "Propuesta"
+      cfp/comment: "Comentario"
+      cfp/profile: "Perfil"

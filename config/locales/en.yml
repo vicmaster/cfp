@@ -23,6 +23,7 @@ en:
     new_for: "New Comment for"
 
   profile:
+    profile: "Profile"
     edited:
       success: "Your profile has been updated succesfully"
 

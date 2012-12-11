@@ -1,5 +1,4 @@
-%h1 Profile
-
+%h1= t('profile.profile')
 
 .row
   .span5= @profile.name
@@ -10,4 +9,4 @@
 .row
   .span5= @profile.bio
 .row
-  .span5= link_to 'Edit', edit_profile_path, :class => 'btn btn-primary'
+  .span5= link_to t('actions.edit'), edit_profile_path, :class => 'btn btn-primary'
