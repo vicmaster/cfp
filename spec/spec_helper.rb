@@ -51,11 +51,13 @@ Spork.prefork do
   class User < ActiveRecord::Base
     include Cfp::User
   end
+
 end
 
 Spork.each_run do
   ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
   load './spec/dummy/db/schema.rb'
   load 'cfp.rb'
+  Cfp::Config.call_for_papers_state = "closed"
 end
 

@@ -2,6 +2,7 @@ Feature: Manage My Proposals
 
   Background:
     Given a regular User exists
+    And CFP is open
     And that user is logged in
 
   Scenario: Create a Proposal

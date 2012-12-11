@@ -11,4 +11,9 @@ class Cfp::Controller < ::ApplicationController
   def set_locale
     I18n.locale = current_user.profile.locale if current_user && current_user.profile
   end
+
+  def cfp_open?
+    Cfp::Config.cfp_open?
+  end
+  helper_method :cfp_open?
 end

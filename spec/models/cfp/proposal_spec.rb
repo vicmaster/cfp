@@ -8,25 +8,34 @@ describe Cfp::Proposal do
   end
 
   describe "#can_be_edited_by?" do
-    context "user is the owner" do
-      before { subject.user = user }
+    context "CFP is open" do
+      before { Cfp::Config.stub(:call_for_papers_state).and_return "open" }
+      context "user is the owner" do
+        before { subject.user = user }
 
-      specify do
-        subject.can_be_edited_by?(user).should be_true
+        specify do
+          subject.can_be_edited_by?(user).should be_true
+        end
+      end
+
+      context "user is an admin" do
+        before do
+          user.stub(:is_admin?).and_return true
+        end
+
+        specify do
+          subject.can_be_edited_by?(user).should be_true
+        end
+      end
+
+      context "user has no relation to proposal" do
+        specify { subject.can_be_edited_by?(user).should be_false }
       end
     end
 
-    context "user is an admin" do
-      before do
-        user.stub(:is_admin?).and_return true
-      end
+    context "CFP is closed" do
+      before { Cfp::Config.stub(:call_for_papers_state).and_return "open" }
 
-      specify do
-        subject.can_be_edited_by?(user).should be_true
-      end
-    end
-
-    context "user has no relation to proposal" do
       specify { subject.can_be_edited_by?(user).should be_false }
     end
   end

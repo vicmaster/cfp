@@ -15,7 +15,7 @@ module Cfp
     def create
       @proposal = Proposal.new proposal_params[:proposal]
       @proposal.user = current_user
-      if @proposal.save
+      if cfp_open? && @proposal.save
         redirect_to :proposals, :notice => t('proposals.created.success')
       else
         render :action => :new
