@@ -1,6 +1,8 @@
 module Cfp
   class Proposal < ActiveRecord::Base
     RANK_SCALE = (0..2).to_a
+    TALK_LEVEL = %w(begginner intermediate advanced)
+
     attr_accessible :title, :abstract, :tags, :level
 
     belongs_to :user, :class_name => "::User"

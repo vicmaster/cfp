@@ -46,6 +46,12 @@ es:
       create: "Crear %{model}"
       update: "Actualizar %{model}"
 
+  level:
+    begginner: "Principiantes"
+    intermediate: "Nivel Medio"
+    advanced: "Avanzado"
+
+
   activerecord:
     models:
       cfp/proposal: "Propuesta"

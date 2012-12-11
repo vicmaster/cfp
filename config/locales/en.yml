@@ -31,3 +31,7 @@ en:
     label:
       comment:
         body: "Comment"
+  level:
+    begginner: "Begginner"
+    intermediate: "Intermediate"
+    advanced: "Advanced"

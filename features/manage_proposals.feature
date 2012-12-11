@@ -9,9 +9,9 @@ Feature: Manage My Proposals
     When I follow "Submit Proposal"
     And I fill in the following:
        | Title    | A very cool talk           |
-       | Level    | Intermediate               |
        | Abstract | Some talk about cool stuff |
        | Tags     | talk ruby                  |
+    And I choose "Intermediate" from "Level"
     And I press the Create button
     Then I should be on the "proposals" page
     And I should see "A very cool talk"
@@ -22,9 +22,9 @@ Feature: Manage My Proposals
     And I follow "Edit" for "The great Ruby talk"
     And I fill in the following:
        | Title    | A very cool talk           |
-       | Level    | Intermediate               |
        | Abstract | Some talk about cool stuff |
        | Tags     | talk ruby                  |
+    And I choose "Intermediate" from "Level"
     And I press the Update button
     Then I should be on the "proposals" page
     And I should see "A very cool talk"
