@@ -41,6 +41,7 @@ es:
         company: "Empresa"
         title: "Puesto"
         locale: "Lenguaje"
+        bio: "Bio"
 
     submit:
       create: "Crear %{model}"

@@ -31,6 +31,12 @@ en:
     label:
       comment:
         body: "Comment"
+      profile:
+        name: "Name"
+        company: "Company"
+        title: "Title"
+        locale: "Locale"
+        bio: "Bio"
   level:
     begginner: "Begginner"
     intermediate: "Intermediate"
