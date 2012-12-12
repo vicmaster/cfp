@@ -1,7 +1,11 @@
-%h1= t('proposals.proposals')
-
-- if cfp_open?
-  = link_to t('proposals.submit'), new_proposal_path, :class => "btn btn-primary"
-
-%table.table.table-striped
-  = render @proposals
+.row
+  .span2
+    %ul.nav.nav-list
+      %li.active
+        = link_to t('proposals.proposals'), proposals_path
+      - if cfp_open?
+        %li
+          = link_to t('proposals.submit'), new_proposal_path
+  .span10
+    %table.table.table-striped
+      = render @proposals

@@ -1,7 +1,13 @@
-%h1= t('proposals.edit')
-
 .row
-  .span5.offset1
+  .span2
+    %ul.nav.nav-list
+      %li
+        = link_to t('proposals.proposals'), proposals_path
+      - if cfp_open?
+        %li
+          = link_to t('proposals.submit'), new_proposal_path
+
+  .span5
     = form_for @proposal do |form|
       %fieldset
         = render 'form', :form => form
