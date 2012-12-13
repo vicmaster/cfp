@@ -31,5 +31,11 @@ module Cfp
     def average_ranking
       ranks.average(:value)
     end
+
+    def abstract_html
+      @@renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+                                             :autolink => true, :space_after_headers => true)
+      @@renderer.render(self.abstract).html_safe
+    end
   end
 end

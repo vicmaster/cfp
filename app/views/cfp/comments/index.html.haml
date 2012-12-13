@@ -9,19 +9,19 @@
       %li= link_to t('actions.comment'), new_proposal_comment_path(@proposal)
 
       %li
-        %table.table.table-striped
+        .comments
           = render @comments
 
   .span8
     %h2= @proposal.title
     .speaker
       = @proposal.user_email
-    .abstract
-      = @proposal.abstract
     .level
       = @proposal.level
     .tags
       = @proposal.tags
+    .abstract
+      = @proposal.abstract_html
 
 - content_for :scripts do
   :javascript

@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise"
   s.add_dependency "haml-rails"
   s.add_dependency "rails", "~> 3.2.9"
+  s.add_dependency "redcarpet", "~> 2.2.0"
   s.add_dependency "persistent_settings", "~> 1.3.0"
 
   s.add_development_dependency "autotest"
