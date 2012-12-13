@@ -77,4 +77,26 @@ describe Cfp::User do
 
     specify { subject.should_create_profile?.should be_true }
   end
+
+  describe "#make_reviewer" do
+    context "user is not reviewer" do
+      before do
+        subject.roles = []
+        subject.should_receive :save
+        subject.make_reviewer
+      end
+
+      specify { subject.roles.should == [ :reviewer ] }
+    end
+
+    context "user is reviewer" do
+      before do
+        subject.roles = [ :reviewer ]
+        subject.should_not_receive :save
+        subject.make_reviewer
+      end
+
+      specify { subject.roles.should == [ :reviewer ] }
+    end
+  end
 end

@@ -20,6 +20,13 @@ module Cfp
       roles.include?(:admin)
     end
 
+    def make_reviewer
+      unless self.roles.include? :reviewer
+        self.roles << :reviewer
+        self.save
+      end
+    end
+
     def should_create_profile?
       case
       when roles.include?(:admin) || roles.include?(:reviewer)
