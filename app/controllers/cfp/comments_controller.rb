@@ -7,6 +7,7 @@ module Cfp
 
     def index
       @comments = @proposal.comments
+      @score    = Cfp::Rank.for_proposal_user(@proposal, current_user) || Cfp::Rank.new(:value => 0)
     end
 
     def new

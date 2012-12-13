@@ -5,7 +5,7 @@
       %li
         = label_tag :rank, t('proposals.rank')
         #ranking
-          = select_tag "rank", options_for_select(Cfp::Proposal::RANK_SCALE)
+          = select_tag "rank", options_for_select(Cfp::Proposal::RANK_SCALE, @score.value)
       %li= link_to t('actions.comment'), new_proposal_comment_path(@proposal)
 
       %li
