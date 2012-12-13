@@ -7,10 +7,10 @@
       = link_to t('actions.delete'), proposal_path(proposal), :method => :delete, :confirm => t('actions.sure')
   - else
     %td
-      = t('actions.edit')
     %td
-      = t('actions.delete')
   - if current_user.can_review?
+    %td
+      = proposal.user_name
     %td
       = proposal.average_ranking
     %td

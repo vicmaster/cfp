@@ -13,6 +13,7 @@ module Cfp
     validates :abstract, :presence => true
 
     delegate :email, :to => :user, :prefix => true
+    delegate :name, :to => :user, :prefix => true
 
     def self.scoped_for(user)
       case
