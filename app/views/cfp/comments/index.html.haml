@@ -1,6 +1,19 @@
 .row
-  .span6
-    %h1= @proposal.title
+  .span4
+    %ul.nav.nav-list
+      %li= link_to t('actions.back_to_proposals'), proposals_path
+      %li
+        = label_tag :rank, t('proposals.rank')
+        #ranking
+          = select_tag "rank", options_for_select(Cfp::Proposal::RANK_SCALE)
+      %li= link_to t('actions.comment'), new_proposal_comment_path(@proposal)
+
+      %li
+        %table.table.table-striped
+          = render @comments
+
+  .span8
+    %h2= @proposal.title
     .speaker
       = @proposal.user_email
     .abstract
@@ -9,19 +22,6 @@
       = @proposal.level
     .tags
       = @proposal.tags
-
-  #ranking.span6
-    = label_tag :rank, t('proposals.rank')
-    = select_tag "rank", options_for_select(Cfp::Proposal::RANK_SCALE)
-
-.row
-  .span6
-    = link_to t('actions.comment'), new_proposal_comment_path(@proposal), :class => 'btn btn-primary'
-  .span6
-    = link_to t('actions.back_to_proposals'), proposals_path
-
-%table.table.table-striped
-  = render @comments
 
 - content_for :scripts do
   :javascript
