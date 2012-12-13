@@ -29,7 +29,7 @@ module Cfp
     end
 
     def average_ranking
-      ranks.average(:value)
+      ranks.sum(:value)
     end
 
     def abstract_html

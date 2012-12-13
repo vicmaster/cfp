@@ -23,4 +23,4 @@ Feature: Reviewer can discuss proposals
     And I choose "2" from "Rank"
     And I follow "Back to Proposals"
     Then I should be on the "proposals" page
-    And I should see "2.0"
+    And I should see "2"
