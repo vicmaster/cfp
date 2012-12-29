@@ -2,6 +2,7 @@ es:
   actions:
     edit: "Editar"
     delete: "Eliminar"
+    show: "Ver"
     sure: "¿Seguro?"
     discuss: "Discutir"
     comment: "Comentar"

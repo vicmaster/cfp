@@ -1,6 +1,6 @@
 = content_tag_for :tr, proposal, :class => "row" do
   %td= proposal.title
-  %td= link_to 'Show', proposal_path(proposal)
+  %td= link_to t('actions.show'), proposal_path(proposal)
   - if proposal.can_be_edited_by?(current_user)
     %td
       = link_to t('actions.edit'), edit_proposal_path(proposal)
