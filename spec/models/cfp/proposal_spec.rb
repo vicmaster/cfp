@@ -10,17 +10,12 @@ describe Cfp::Proposal do
   describe "#can_be_edited_by?" do
     context "CFP is open" do
       before { Cfp::Config.stub(:call_for_papers_state).and_return "open" }
-      context "user is the owner" do
-        before { subject.user = user }
 
-        specify do
-          subject.can_be_edited_by?(user).should be_true
-        end
-      end
-
-      context "user is an admin" do
+      context "can be seen by user" do
         before do
-          user.stub(:is_admin?).and_return true
+          subject.should_receive(:can_be_seen_by?).
+              with(user).
+              and_return(true)
         end
 
         specify do
@@ -28,15 +23,41 @@ describe Cfp::Proposal do
         end
       end
 
-      context "user has no relation to proposal" do
-        specify { subject.can_be_edited_by?(user).should be_false }
+      context "can't be seen by user" do
+        before do
+          subject.should_receive(:can_be_seen_by?).
+              with(user).
+              and_return(false)
+        end
+
+        specify do
+          subject.can_be_edited_by?(user).should be_false
+        end
       end
     end
 
     context "CFP is closed" do
-      before { Cfp::Config.stub(:call_for_papers_state).and_return "open" }
+      before { Cfp::Config.stub(:call_for_papers_state).and_return "closed" }
 
       specify { subject.can_be_edited_by?(user).should be_false }
+    end
+  end
+
+  describe "#can_be_seen_by?" do
+    context "user is the owner" do
+      before { subject.user = user }
+
+      specify { subject.can_be_seen_by?(user).should be_true }
+    end
+
+    context "user is an admin" do
+      before { user.stub(:is_admin?).and_return true }
+
+      specify { subject.can_be_seen_by?(user).should be_true }
+    end
+
+    context "user has no relation to proposal" do
+      specify { subject.can_be_seen_by?(user).should be_false }
     end
   end
 

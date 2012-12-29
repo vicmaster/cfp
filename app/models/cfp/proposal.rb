@@ -25,7 +25,11 @@ module Cfp
     end
 
     def can_be_edited_by?(user)
-      Cfp::Config.cfp_open? && ((self.user == user) || (user.is_admin?))
+      Cfp::Config.cfp_open? && can_be_seen_by?(user)
+    end
+
+    def can_be_seen_by?(user)
+      (self.user == user) || (user.is_admin?)
     end
 
     def average_ranking

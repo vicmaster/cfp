@@ -43,6 +43,7 @@ module Cfp
     private
     def load_proposal
       @proposal = Proposal.find(params[:id])
+      redirect_to :proposals unless @proposal.can_be_seen_by?(current_user)
     end
 
     def proposal_params
