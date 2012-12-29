@@ -2,7 +2,7 @@ require_dependency "cfp/application_controller"
 
 module Cfp
   class ProposalsController < Controller
-    before_filter :load_proposal, :only => [:edit, :update, :destroy]
+    before_filter :load_proposal, :only => [:edit, :update, :destroy, :show]
 
     def index
       @proposals = Proposal.scoped_for(current_user)
@@ -37,6 +37,8 @@ module Cfp
       @proposal.destroy if @proposal.can_be_edited_by?(current_user)
       redirect_to :proposals, :notice => t('proposals.deleted.success')
     end
+
+    def show ; end
 
     private
     def load_proposal

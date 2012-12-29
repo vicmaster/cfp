@@ -3,7 +3,7 @@ Cfp::Engine.routes.draw do
 
   resource :profile
 
-  resources :proposals, :except => [:show] do
+  resources :proposals do
     resources :comments
     resources :ranks, :only => [ :create ]
   end

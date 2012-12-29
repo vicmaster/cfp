@@ -47,3 +47,7 @@ Then /^I should see the following:$/ do |table|
     page.should have_content row.first
   end
 end
+
+Then /^I should see a "(.*?)" tag enclosing "(.*?)"$/ do |tag, contains|
+  page.should have_selector("#{tag}:contains('#{contains}')")
+end

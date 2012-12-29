@@ -11,6 +11,11 @@ Given /^a proposal titled "(.*?)"$/ do |proposal_title|
   @proposal.save!
 end
 
+Given /^that proposal has the following abstract:$/ do |string|
+  @proposal.abstract = string
+  @proposal.save!
+end
+
 When /^I press the Update button$/ do
   click_button 'Update Proposal'
 end

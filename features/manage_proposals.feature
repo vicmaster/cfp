@@ -35,3 +35,18 @@ Feature: Manage My Proposals
     When I go to the "proposals" page
     And I follow "Delete" for "The great Ruby talk"
     Then I should not see "The great Ruby talk"
+
+  Scenario: Edit a proposal
+    Given a proposal titled "The great Ruby talk"
+    And that proposal has the following abstract:
+      """
+      # A header
+      ## A header 2
+
+      Lorem Ipsum dolor sit amet
+      """
+    When I go to the "proposals" page
+    And I follow "Show" for "The great Ruby talk"
+    Then I should see a "h1" tag enclosing "A header"
+    And I should see a "h2" tag enclosing "A header 2"
+    And I should see "Lorem Ipsum dolor sit amet"
