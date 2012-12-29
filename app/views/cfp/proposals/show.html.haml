@@ -1,3 +1,11 @@
-%h1= @proposal.title
+.row
+  .span2
+    %ul.nav.nav-list
+      %li
+        = link_to t('proposals.proposals'), proposals_path
+      - if cfp_open?
+        %li
+          = link_to t('proposals.submit'), new_proposal_path
 
-.proposal= @proposal.abstract_html
+  .span5
+    = render :partial => "formatted_proposal", :object => @proposal
