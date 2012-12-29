@@ -1,4 +1,4 @@
-class Cfp::Controller < ::ApplicationController
+class Cfp::BaseController < ::ApplicationController
   before_filter :check_for_profile, :set_locale
   layout 'cfp/application'
 

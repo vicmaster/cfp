@@ -1,7 +1,7 @@
 require_dependency "cfp/application_controller"
 
 module Cfp
-  class ProposalsController < Controller
+  class ProposalsController < BaseController
     before_filter :load_proposal, :only => [:edit, :update, :destroy, :show]
 
     def index

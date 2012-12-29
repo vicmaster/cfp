@@ -1,7 +1,7 @@
 require_dependency "cfp/application_controller"
 
 module Cfp
-  class CommentsController < Controller
+  class CommentsController < BaseController
     before_filter :check_for_reviewer
     before_filter :load_proposal
 
