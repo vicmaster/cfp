@@ -38,6 +38,13 @@ en:
         title: "Title"
         locale: "Locale"
         bio: "Bio"
+    placeholder:
+      proposal:
+        title: "Título"
+        level: "Nivel"
+        abstract: "Description for the talk selecting committee. This section will not be visible to the public."
+        tags: "Comma separated general topic list: Ruby, Javascript, etc."
+        description: "Talk description for the public to read. Briefly explain what your talk will be about. How would you invite people to listen to you?"
   level:
     begginner: "Begginner"
     intermediate: "Intermediate"

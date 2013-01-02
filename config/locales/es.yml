@@ -32,9 +32,11 @@ es:
     label:
       proposal:
         title: "Título"
+        language: "Idioma"
         level: "Nivel"
         abstract: "Resumen"
         tags: "Etiquetas"
+        description: "Descripción"
       comment:
         body: "Comentario"
       profile:
@@ -43,6 +45,14 @@ es:
         title: "Puesto"
         locale: "Lenguaje"
         bio: "Bio"
+    placeholder:
+      proposal:
+        title: "Título"
+        level: "Nivel"
+        abstract: "Detalle para el comité que va a seleccionar las platicas. Esta sección no será visible para el público."
+        tags: "Tópicos generales separados por coma: Ruby, Javascript, etc."
+        description: "Lo qué el publico verá. Explica brevemente de que se tratará tu plática. ¿Cómo invitarías a la gente a escucharte?"
+
 
     submit:
       create: "Crear %{model}"

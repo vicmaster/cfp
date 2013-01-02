@@ -1,8 +1,12 @@
 = form.label :title
 = form.text_field :title, :class => "input-block-level title"
+= form.label :language
+= form.select :language, Cfp::Proposal::LANGUAGE
 = form.label :level
 = form.select :level, Cfp::Proposal::TALK_LEVEL.collect {|l| [t("level.#{l}"), l]}
+= form.label :description
+= form.text_area :description, :class => "input-block-level", :rows => 8, :placeholder => t('helpers.placeholder.proposal.description')
 = form.label :abstract
-= form.text_area :abstract, :class => "input-block-level"
+= form.text_area :abstract, :class => "input-block-level", :rows => 8, :placeholder => t('helpers.placeholder.proposal.abstract')
 = form.label :tags
-= form.text_field :tags, :class => "input-block-level"
+= form.text_field :tags, :class => "input-block-level", :placeholder => t('helpers.placeholder.proposal.tags')

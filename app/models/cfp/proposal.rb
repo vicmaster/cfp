@@ -1,9 +1,12 @@
+# encoding: utf-8
+
 module Cfp
   class Proposal < ActiveRecord::Base
     RANK_SCALE = (0..2).to_a
     TALK_LEVEL = %w(begginner intermediate advanced)
+    LANGUAGE   = %w(English Español)
 
-    attr_accessible :title, :abstract, :tags, :level
+    attr_accessible :title, :abstract, :tags, :level, :language, :description
 
     belongs_to :user, :class_name => "::User"
     has_many :comments

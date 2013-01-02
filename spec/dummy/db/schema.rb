@@ -42,9 +42,11 @@ ActiveRecord::Schema.define(:version => 20121211170150) do
     t.string   "title"
     t.string   "level"
     t.text     "abstract"
+    t.text     "description"
+    t.string   "language"
     t.string   "tags"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "cfp_ranks", :force => true do |t|
