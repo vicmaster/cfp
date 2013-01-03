@@ -12,11 +12,12 @@ module Cfp
     has_many :comments
     has_many :ranks
 
-    validates :title, :presence => true
-    validates :abstract, :presence => true
+    validates :title       , :presence => true
+    validates :abstract    , :presence => true
+    validates :description , :presence => true
 
-    delegate :email, :to => :user, :prefix => true
-    delegate :name, :to => :user, :prefix => true
+    delegate :email , :to => :user , :prefix => true
+    delegate :name  , :to => :user , :prefix => true
 
     def self.scoped_for(user)
       case
@@ -39,10 +40,17 @@ module Cfp
       ranks.sum(:value)
     end
 
+    def description_html
+      Cfp::Proposal.renderer.render(self.description).html_safe
+    end
+
     def abstract_html
-      @@renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+      Cfp::Proposal.renderer.render(self.abstract).html_safe
+    end
+
+    def self.renderer
+      @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
                                              :autolink => true, :space_after_headers => true)
-      @@renderer.render(self.abstract).html_safe
     end
   end
 end
