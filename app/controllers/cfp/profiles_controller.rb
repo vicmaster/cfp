@@ -1,6 +1,6 @@
 module Cfp
   class ProfilesController < BaseController
-    skip_before_filter :check_for_profile
+    skip_before_filter :check_for_profile, :except => [ :show ]
     before_filter :load_profile, :only => [ :edit, :update ]
 
     def new
