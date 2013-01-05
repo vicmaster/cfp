@@ -3,7 +3,7 @@
 module Cfp
   class Proposal < ActiveRecord::Base
     RANK_SCALE = (0..2).to_a
-    TALK_LEVEL = %w(begginner intermediate advanced)
+    TALK_LEVEL = %w(beginner intermediate advanced)
     LANGUAGE   = %w(English Español)
 
     attr_accessible :title, :abstract, :tags, :level, :language, :description
