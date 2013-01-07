@@ -34,7 +34,7 @@ es:
         title: "Título"
         language: "Idioma"
         level: "Nivel"
-        abstract: "Resumen"
+        abstract: "Notas para selección"
         tags: "Etiquetas"
         description: "Descripción"
       comment:

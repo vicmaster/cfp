@@ -30,6 +30,8 @@ en:
 
   helpers:
     label:
+      proposal:
+        abstract: "Notes for reviewers"
       comment:
         body: "Comment"
       profile:
