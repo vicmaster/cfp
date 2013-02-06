@@ -9,5 +9,11 @@ module Cfp
 
     delegate :email, :to => :user
 
+    after_save :notify_reviewers
+
+    def notify_reviewers
+      Notifications.comment_sent(self).deliver
+    end
+
   end
 end

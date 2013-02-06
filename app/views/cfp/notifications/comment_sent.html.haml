@@ -1,0 +1,10 @@
+%h1 New Comment
+
+%h2
+  "#{@who_name} has posted a new comment on "
+  %b= @comment.proposal.title
+
+%p= @comment.body
+
+=link_to 'Jump to discuss', proposal_comments_path(@comment.proposal.id)
+
