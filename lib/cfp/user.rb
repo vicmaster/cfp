@@ -6,6 +6,7 @@ module Cfp
       base.send(:has_one, :profile, :class_name => "Cfp::Profile")
       base.send(:serialize, :roles)
       base.send(:delegate, :name, :to => :profile)
+      base.send(:delegate, :bio, :to => :profile)
       base.send(:extend, ClassMethods)
     end
 
