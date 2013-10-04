@@ -18,6 +18,7 @@ module Cfp
 
     delegate :email , :to => :user , :prefix => true
     delegate :name  , :to => :user , :prefix => true
+    delegate :bio   , :to => :user , :prefix => true
 
     def self.scoped_for(user)
       case
