@@ -15,7 +15,8 @@ module Cfp
     end
 
     def create
-      @comment = @proposal.comments.build(params[:comment])
+      @comment = @proposal.comments.build comment_params
+      #@comment = @proposal.comments.build(params[:comment])
       @comment.user = current_user
       if @comment.save
         redirect_to proposal_comments_path(@proposal)
@@ -29,7 +30,12 @@ module Cfp
     end
 
     def load_proposal
-      @proposal = Proposal.find(params[:proposal_id])
+      @proposal = Proposal.find params[:proposal_id]
+    end
+
+    private
+    def comment_params
+      params.require(:comment).permit :body
     end
   end
 end

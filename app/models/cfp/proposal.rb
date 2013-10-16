@@ -2,11 +2,11 @@
 
 module Cfp
   class Proposal < ActiveRecord::Base
-    RANK_SCALE = (0..2).to_a
+    RANK_SCALE = (0..5).to_a
     TALK_LEVEL = %w(beginner intermediate advanced)
     LANGUAGE   = %w(English Español)
 
-    attr_accessible :title, :abstract, :tags, :level, :language, :description
+
 
     belongs_to :user, :class_name => "::User"
     has_many :comments
@@ -23,7 +23,7 @@ module Cfp
     def self.scoped_for(user)
       case
       when user.can_review?
-        scoped
+        all
       else
         user.proposals
       end

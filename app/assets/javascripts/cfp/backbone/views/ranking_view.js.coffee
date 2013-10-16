@@ -10,4 +10,4 @@ class Cfp.Views.RankingView extends Backbone.View
       value: @selectedRank()
 
   selectedRank: =>
-    @$('#rank:checked').val()
+    @$('#rank').val()

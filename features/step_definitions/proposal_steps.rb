@@ -6,8 +6,8 @@ Given /^a proposal titled "(.*?)"$/ do |proposal_title|
   @proposal             = Cfp::Proposal.new
   @proposal.user        = @user
   @proposal.title       = proposal_title
-  @proposal.abstract    = Faker::Lorem.paragraphs(3)
-  @proposal.description = Faker::Lorem.paragraphs(3)
+  @proposal.abstract    = Faker::Lorem.paragraphs(3).first
+  @proposal.description = Faker::Lorem.paragraphs(3).first
 
   @proposal.save!
 end

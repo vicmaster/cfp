@@ -13,7 +13,7 @@ module Cfp
     end
 
     def create
-      @proposal = Proposal.new proposal_params[:proposal]
+      @proposal = Proposal.new proposal_params
       @proposal.user = current_user
       if cfp_open? && @proposal.save
         redirect_to :proposals, :notice => t('proposals.created.success')
@@ -26,7 +26,7 @@ module Cfp
     end
 
     def update
-      if @proposal.can_be_edited_by?(current_user) && @proposal.update_attributes(proposal_params[:proposal])
+      if @proposal.can_be_edited_by?(current_user) && @proposal.update_attributes(proposal_params)
         redirect_to :proposals, :notice => t('proposals.edited.success')
       else
         render :action => "edit"
@@ -42,12 +42,13 @@ module Cfp
 
     private
     def load_proposal
-      @proposal = Proposal.find(params[:id])
+      @proposal = Proposal.find params[:id]
       redirect_to :proposals unless @proposal.can_be_seen_by?(current_user)
     end
 
+    private
     def proposal_params
-      params
+      params.require(:proposal).permit :title, :abstract, :tags, :level, :language, :description
     end
   end
 end

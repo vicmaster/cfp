@@ -8,7 +8,9 @@ module Cfp
     end
 
     def create
-      @profile = Cfp::Profile.new(params[:profile])
+      #@profile = Cfp::Profile.new create_profile_params
+      #@profile = Cfp::Profile.new(params[:profile])
+      @profile = Profile.new profile_params
       if @profile.save
         current_user.profile = @profile
         current_user.save
@@ -26,7 +28,8 @@ module Cfp
     end
 
     def update
-      if @profile.update_attributes params[:profile]
+      #if @profile.update_attributes params[:profile]
+      if @profile.update_attributes profile_params
         redirect_to :profile, :notice => t('profile.edited.success')
       else
         render :action => :edit
@@ -36,6 +39,11 @@ module Cfp
     private
     def load_profile
       @profile = current_user.profile
+    end
+
+    private
+    def profile_params
+      params.require(:profile).permit :bio, :company, :name, :title, :locale
     end
   end
 end

@@ -9,7 +9,7 @@ module Cfp
     #
     def comment_sent(comment)
       users = ::User.all.select {|user| user.is_admin? || user.can_review?}
-      bcc = users.map {|user| user.profile.email}
+      bcc = users.map {|user| user.email}
       @comment = comment
       @who_name = comment.user.profile.name
       mail bcc: bcc, subject: 'CFP MagmaConf - New comment'

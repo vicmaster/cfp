@@ -66,15 +66,15 @@ describe Cfp::Proposal do
       before { user.stub(:can_review?).and_return true }
 
       it "returns all proposals" do
-        scoped = mock
-        subject.class.should_receive(:scoped).and_return(scoped)
+        scoped = double
+        subject.class.should_receive(:all).and_return(scoped)
         subject.class.scoped_for(user).should be scoped
       end
     end
 
     context "regular user" do
       it "returns only his proposals" do
-        results = mock
+        results = double
         user.should_receive(:proposals).and_return results
         subject.class.scoped_for(user).should be results
       end
@@ -83,7 +83,7 @@ describe Cfp::Proposal do
 
   describe "#average_ranking" do
     it "returns the AR average for the value column on all proposal rankings" do
-      rankings = mock
+      rankings = double
       rankings.should_receive(:sum).with(:value)
       subject.stub(:ranks).and_return rankings
 

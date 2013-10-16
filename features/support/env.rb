@@ -5,6 +5,7 @@ ENV["RAILS_ROOT"] ||= File.dirname(__FILE__) + "../../../spec/dummy"
 
 require 'cucumber/rails'
 require 'faker'
+require 'capybara'
 require "capybara/webkit"
 
 Capybara.default_selector = :css

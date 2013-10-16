@@ -28,7 +28,7 @@ module Cfp
     end
 
     def load_proposal
-      @proposal = Proposal.find(params[:proposal_id])
+      @proposal = Proposal.find params[:proposal_id]
     end
   end
 end
