@@ -8,8 +8,6 @@ module Cfp
     end
 
     def create
-      #@profile = Cfp::Profile.new create_profile_params
-      #@profile = Cfp::Profile.new(params[:profile])
       @profile = Profile.new profile_params
       if @profile.save
         current_user.profile = @profile

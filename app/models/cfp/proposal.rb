@@ -6,8 +6,6 @@ module Cfp
     TALK_LEVEL = %w(beginner intermediate advanced)
     LANGUAGE   = %w(English Español)
 
-
-
     belongs_to :user, :class_name => "::User"
     has_many :comments
     has_many :ranks

@@ -16,7 +16,6 @@ module Cfp
 
     def create
       @comment = @proposal.comments.build comment_params
-      #@comment = @proposal.comments.build(params[:comment])
       @comment.user = current_user
       if @comment.save
         redirect_to proposal_comments_path(@proposal)
