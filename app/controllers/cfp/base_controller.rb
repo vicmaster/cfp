@@ -3,9 +3,7 @@ class Cfp::BaseController < ::ApplicationController
   layout 'cfp/application'
 
   def check_for_profile
-    if current_user
-      redirect_to new_profile_path if current_user.should_create_profile?
-    end
+    redirect_to new_profile_path if current_user && current_user.should_create_profile?
   end
 
   def set_locale
