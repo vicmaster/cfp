@@ -45,7 +45,7 @@ en:
         title: "Título"
         level: "Nivel"
         abstract: "Description for the talk selecting committee. This section will not be visible to the public. You can use Markdown to give it a little formatting."
-        tags: "Comma separated general topic list: Ruby, Javascript, etc."
+        tags: "Comma separated"
         description: "Talk description for the public to read. Briefly explain what your talk will be about. How would you invite people to listen to you?. You can use Markdown to give it a little formatting."
   level:
     beginner: "Beginner"
