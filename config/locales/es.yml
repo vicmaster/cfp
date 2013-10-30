@@ -50,7 +50,7 @@ es:
         title: "Título"
         level: "Nivel"
         abstract: "Detalle para el comité que va a seleccionar las platicas. Esta sección no será visible para el público. Puedes usar Markdown para darle un poco de formato."
-        tags: "Tópicos generales separados por coma: Ruby, Javascript, etc."
+        tags: "Separadas por coma"
         description: "Lo qué el publico verá. Explica brevemente de que se tratará tu plática. ¿Cómo invitarías a la gente a escucharte? Puedes usar Markdown para darle un poco de formato."
 
 
