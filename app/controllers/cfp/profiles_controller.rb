@@ -23,6 +23,7 @@ module Cfp
     end
 
     def edit
+      redirect_to :new_profile unless @profile
     end
 
     def update
