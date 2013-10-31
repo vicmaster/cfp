@@ -6,17 +6,22 @@ module Cfp
     TALK_LEVEL = %w(beginner intermediate advanced)
     LANGUAGE   = %w(English Español)
 
-    belongs_to :user, :class_name => "::User"
+    belongs_to :user, class_name: "::User"
     has_many :comments
     has_many :ranks
 
-    validates :title       , :presence => true
-    validates :abstract    , :presence => true
-    validates :description , :presence => true
+    validates :title       , presence: true
+    validates :abstract    , presence: true
+    validates :description , presence: true
 
-    delegate :email , :to => :user , :prefix => true
-    delegate :name  , :to => :user , :prefix => true
-    delegate :bio   , :to => :user , :prefix => true
+    validates :title    , length: { maximum: 255 }
+    validates :level    , length: { maximum: 255 }
+    validates :language , length: { maximum: 255 }
+    validates :tags     , length: { maximum: 255 }
+
+    delegate :email , to: :user , prefix: true
+    delegate :name  , to: :user , prefix: true
+    delegate :bio   , to: :user , prefix: true
 
     def self.scoped_for(user)
       case
@@ -49,7 +54,8 @@ module Cfp
 
     def self.renderer
       @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-                                             :autolink => true, :space_after_headers => true)
+                                             autolink: true,
+                                             space_after_headers: true)
     end
   end
 end
