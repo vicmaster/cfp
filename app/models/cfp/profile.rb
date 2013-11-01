@@ -7,8 +7,6 @@ module Cfp
     validates :title   , length: { maximum: 255 }
     validates :company , length: { maximum: 255 }
 
-    validates :bio    , presence: true
-
     validates :locale , presence: true
     validates :locale , inclusion: { in: LOCALES }
   end
