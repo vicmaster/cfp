@@ -14,5 +14,8 @@ module Cfp
       Notifications.comment_sent(self).deliver
     end
 
+    def body_html
+      Cfp::Proposal.renderer.render(self.body).html_safe
+    end
   end
 end
