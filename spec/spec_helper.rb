@@ -8,7 +8,6 @@ ENV["RAILS_ENV"] ||= 'test'
 Spork.prefork do
   require File.expand_path("../dummy/config/environment", __FILE__)
   require 'rspec/rails'
-  require 'rspec/autorun'
 
   ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
