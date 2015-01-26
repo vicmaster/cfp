@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20121211170150) do
+ActiveRecord::Schema.define(version: 20131205001714) do
 
   create_table "cfp_comments", force: true do |t|
     t.integer  "user_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20121211170150) do
     t.string   "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved"
   end
 
   create_table "cfp_ranks", force: true do |t|
