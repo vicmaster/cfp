@@ -6,7 +6,7 @@
     %td
       = link_to t('actions.edit'), edit_proposal_path(proposal)
     %td
-      = link_to t('actions.delete'), proposal_path(proposal), :method => :delete, :confirm => t('actions.sure')
+      = link_to t('actions.delete'), proposal_path(proposal), :method => :delete, :data => t('actions.sure')
   - else
     %td
     %td
