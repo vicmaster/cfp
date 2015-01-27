@@ -13,11 +13,11 @@ Then /^show me the page$/ do
 end
 
 Then /^I should be on the "(.*?)" page$/ do |page|
-  current_path.should == send("#{page}_path")
+  expect(current_path).to eq send("#{page}_path")
 end
 
 Then /^I should see "(.*?)"$/ do |expectation|
-  page.should have_content("#{expectation}")
+  expect(page).to have_content("#{expectation}")
 end
 
 When /^I (go to|am on) the "(.*?)" page$/ do |action, page|
@@ -31,7 +31,7 @@ When /^I follow "(.*?)" for "(.*?)"$/ do |link_text, row_text|
 end
 
 Then /^I should not see "(.*?)"$/ do |expectation|
-  page.should_not have_content expectation
+  expect(page).not_to have_content expectation
 end
 
 When /^I press the "(.*?)" button$/ do |button|
@@ -44,10 +44,14 @@ end
 
 Then /^I should see the following:$/ do |table|
   table.raw.each do |row|
-    page.should have_content row.first
+    expect(page).to have_content row.first
   end
 end
 
 Then /^I should see a "(.*?)" tag enclosing "(.*?)"$/ do |tag, contains|
-  page.should have_selector("#{tag}:contains('#{contains}')")
+  expect(page).to have_selector("#{tag}:contains('#{contains}')")
+end
+
+Given /^I wait for (\d+) seconds?$/ do |n|
+  sleep(n.to_i)
 end
