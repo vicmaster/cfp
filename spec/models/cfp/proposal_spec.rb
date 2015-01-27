@@ -9,37 +9,37 @@ describe Cfp::Proposal do
 
   describe "#can_be_edited_by?" do
     context "CFP is open" do
-      before { Cfp::Config.stub(:call_for_papers_state).and_return "open" }
+      before { allow(Cfp::Config).to receive(:call_for_papers_state).and_return "open" }
 
       context "can be seen by user" do
         before do
-          subject.should_receive(:can_be_seen_by?).
+          expect(subject).to receive(:can_be_seen_by?).
               with(user).
               and_return(true)
         end
 
         specify do
-          subject.can_be_edited_by?(user).should be_true
+          expect(subject.can_be_edited_by?(user)).to be true
         end
       end
 
       context "can't be seen by user" do
         before do
-          subject.should_receive(:can_be_seen_by?).
+          expect(subject).to receive(:can_be_seen_by?).
               with(user).
               and_return(false)
         end
 
         specify do
-          subject.can_be_edited_by?(user).should be_false
+          expect(subject.can_be_edited_by?(user)).to be false
         end
       end
     end
 
     context "CFP is closed" do
-      before { Cfp::Config.stub(:call_for_papers_state).and_return "closed" }
+      before { allow(Cfp::Config).to receive(:call_for_papers_state).and_return "closed" }
 
-      specify { subject.can_be_edited_by?(user).should be_false }
+      specify { expect(subject.can_be_edited_by?(user)).to be false }
     end
   end
 
@@ -47,36 +47,36 @@ describe Cfp::Proposal do
     context "user is the owner" do
       before { subject.user = user }
 
-      specify { subject.can_be_seen_by?(user).should be_true }
+      specify { expect(subject.can_be_seen_by?(user)).to be true }
     end
 
     context "user is an admin" do
-      before { user.stub(:is_admin?).and_return true }
+      before { allow(user).to receive(:is_admin?).and_return true }
 
-      specify { subject.can_be_seen_by?(user).should be_true }
+      specify { expect(subject.can_be_seen_by?(user)).to be true }
     end
 
     context "user has no relation to proposal" do
-      specify { subject.can_be_seen_by?(user).should be_false }
+      specify { expect(subject.can_be_seen_by?(user)).to be false }
     end
   end
 
   describe ".scoped_for(user)" do
     context "user can review" do
-      before { user.stub(:can_review?).and_return true }
+      before { allow(user).to receive(:can_review?).and_return true }
 
       it "returns all proposals" do
         scoped = double
-        subject.class.should_receive(:all).and_return(scoped)
-        subject.class.scoped_for(user).should be scoped
+        expect(subject.class).to receive(:all).and_return(scoped)
+        expect(subject.class.scoped_for(user)).to be scoped
       end
     end
 
     context "regular user" do
       it "returns only his proposals" do
         results = double
-        user.should_receive(:proposals).and_return results
-        subject.class.scoped_for(user).should be results
+        allow(user).to receive(:proposals).and_return results
+        expect(subject.class.scoped_for(user)).to be results
       end
     end
   end
@@ -84,8 +84,8 @@ describe Cfp::Proposal do
   describe "#average_ranking" do
     it "returns the AR average for the value column on all proposal rankings" do
       rankings = double
-      rankings.should_receive(:sum).with(:value)
-      subject.stub(:ranks).and_return rankings
+      allow(rankings).to receive(:sum).and_return :value
+      allow(subject).to receive(:ranks).and_return rankings
 
       subject.average_ranking
     end
