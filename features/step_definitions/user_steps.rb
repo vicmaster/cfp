@@ -12,7 +12,7 @@ Given /^that user is logged in$/ do
   fill_in 'Email'    , :with => @user.email
   fill_in 'Password' , :with => @user.password
 
-  click_button 'Sign in'
+  click_button 'Log in'
 end
 
 Given /^a reviewer User exists$/ do
