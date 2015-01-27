@@ -19,7 +19,7 @@ describe Cfp::Proposal do
         end
 
         specify do
-          subject.can_be_edited_by?(user).should be_true
+          expect(subject.can_be_edited_by?(user)).to be_true
         end
       end
 
@@ -31,7 +31,7 @@ describe Cfp::Proposal do
         end
 
         specify do
-          subject.can_be_edited_by?(user).should be_false
+          expect(subject.can_be_edited_by?(user)).to be_false
         end
       end
     end
@@ -39,7 +39,7 @@ describe Cfp::Proposal do
     context "CFP is closed" do
       before { Cfp::Config.stub(:call_for_papers_state).and_return "closed" }
 
-      specify { subject.can_be_edited_by?(user).should be_false }
+      specify { expect(subject.can_be_edited_by?(user)).to be_false }
     end
   end
 
@@ -47,17 +47,17 @@ describe Cfp::Proposal do
     context "user is the owner" do
       before { subject.user = user }
 
-      specify { subject.can_be_seen_by?(user).should be_true }
+      specify { expect(subject.can_be_seen_by?(user)).to be_true }
     end
 
     context "user is an admin" do
       before { user.stub(:is_admin?).and_return true }
 
-      specify { subject.can_be_seen_by?(user).should be_true }
+      specify { expect(subject.can_be_seen_by?(user)).to be_true }
     end
 
     context "user has no relation to proposal" do
-      specify { subject.can_be_seen_by?(user).should be_false }
+      specify { expect(subject.can_be_seen_by?(user)).to be_false }
     end
   end
 
@@ -68,7 +68,7 @@ describe Cfp::Proposal do
       it "returns all proposals" do
         scoped = double
         subject.class.should_receive(:all).and_return(scoped)
-        subject.class.scoped_for(user).should be scoped
+        expect(subject.class.scoped_for(user)).to be scoped
       end
     end
 
@@ -76,7 +76,7 @@ describe Cfp::Proposal do
       it "returns only his proposals" do
         results = double
         user.should_receive(:proposals).and_return results
-        subject.class.scoped_for(user).should be results
+        expect(subject.class.scoped_for(user)).to be results
       end
     end
   end
