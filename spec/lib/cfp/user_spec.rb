@@ -15,7 +15,7 @@ describe Cfp::User do
 
       it "sets it as []" do
         subject.setup_roles
-        subject.roles.should eq []
+        expect(subject.roles).to eq []
       end
     end
 
@@ -25,7 +25,7 @@ describe Cfp::User do
       end
 
       it "leaves the original value" do
-        subject.roles.should eq [1, 2, 3]
+        expect(subject.roles).to eq [1, 2, 3]
       end
     end
   end
@@ -35,7 +35,7 @@ describe Cfp::User do
       before { subject.roles = [:reviewer] }
 
       it "returns true" do
-        subject.can_review?.should be_true
+        expect(subject.can_review?).to be true
       end
     end
 
@@ -43,7 +43,7 @@ describe Cfp::User do
       before { subject.roles = [] }
 
       it "returns false" do
-        subject.can_review?.should be_false
+        expect(subject.can_review?).to be false
       end
     end
   end
@@ -51,52 +51,52 @@ describe Cfp::User do
   describe "#is_admin?" do
     context "has the admin role" do
       before { subject.roles = [:admin] }
-      specify { subject.is_admin?.should be_true }
+      specify { expect(subject.is_admin?).to be true }
     end
 
     context "has no admin role" do
-      specify { subject.is_admin?.should be_false }
+      specify { expect(subject.is_admin?).to be false }
     end
   end
 
   describe "#should_create_profile?" do
     context "the user is reviewer" do
       before  { subject.roles = [:reviewer] }
-      specify { subject.should_create_profile?.should be_false }
+      specify { expect(subject.should_create_profile?).to be false }
     end
 
     context "the user is admin" do
       before  { subject.roles = [:admin] }
-      specify { subject.should_create_profile?.should be_false }
+      specify { expect(subject.should_create_profile?).to be false }
     end
 
     context "user has profile" do
       before { subject.profile = Cfp::Profile.new }
-      specify { subject.should_create_profile?.should be_false }
+      specify { expect(subject.should_create_profile?).to be false }
     end
 
-    specify { subject.should_create_profile?.should be_true }
+    specify { expect(subject.should_create_profile?).to be true }
   end
 
   describe "#make_reviewer" do
     context "user is not reviewer" do
       before do
         subject.roles = []
-        subject.should_receive :save
+        expect(subject).to receive :save
         subject.make_reviewer
       end
 
-      specify { subject.roles.should == [ :reviewer ] }
+      specify { expect(subject.roles).to eq [ :reviewer ] }
     end
 
     context "user is reviewer" do
       before do
         subject.roles = [ :reviewer ]
-        subject.should_not_receive :save
+        expect(subject).not_to receive :save
         subject.make_reviewer
       end
 
-      specify { subject.roles.should == [ :reviewer ] }
+      specify { expect(subject.roles).to eq [ :reviewer ] }
     end
   end
 end

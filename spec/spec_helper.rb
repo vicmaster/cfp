@@ -28,6 +28,8 @@ Spork.prefork do
     config.expect_with :rspec do |c|
       c.syntax = [:should, :expect]
     end
+
+    config.raise_errors_for_deprecations!
   end
 
   class User < ActiveRecord::Base
