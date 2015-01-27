@@ -52,6 +52,6 @@ Then /^I should see a "(.*?)" tag enclosing "(.*?)"$/ do |tag, contains|
   expect(page).to have_selector("#{tag}:contains('#{contains}')")
 end
 
-Given /^I wait for (\d+) seconds?$/ do |n|
-  sleep(n.to_i)
+Given /^I should see (\d+)?$/ do |n|
+  expect(page).to have_content (n.to_i)
 end
