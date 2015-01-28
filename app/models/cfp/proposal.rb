@@ -9,7 +9,7 @@ module Cfp
     belongs_to :user, class_name: "::User"
     has_many :comments
     has_many :ranks
-    scope :approved, -> { where(:approved => true) }
+    scope :approved, -> { where(approved: true) }
 
     validates :title       , presence: true
     validates :abstract    , presence: true
