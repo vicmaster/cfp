@@ -53,5 +53,5 @@ Then /^I should see a "(.*?)" tag enclosing "(.*?)"$/ do |tag, contains|
 end
 
 Given /^I should see (\d+)?$/ do |n|
-  expect(page).to have_content (n.to_i)
+  expect(find('#proposal_1')).to have_content(n.to_i)
 end
