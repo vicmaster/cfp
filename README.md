@@ -1,5 +1,7 @@
 # Cfp: Call for papers
 
+[![Build Status](https://travis-ci.org/crowdint/cfp.svg?branch=master)](https://travis-ci.org/crowdint/cfp)
+
 Call For Papers Rails Engine that we use to organize [MagmaRails](http://www.magmarails.com).
 
 # About the author
