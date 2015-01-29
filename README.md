@@ -1,5 +1,8 @@
 # Cfp: Call for papers
 
+
+[![Code Climate](https://codeclimate.com/github/crowdint/cfp/badges/gpa.svg)](https://codeclimate.com/github/crowdint/cfp)
+
 Call For Papers Rails Engine that we use to organize [MagmaRails](http://www.magmarails.com).
 
 # About the author
