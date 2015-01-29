@@ -1,5 +1,7 @@
 # Cfp: Call for papers
 
+[![Build Status](https://travis-ci.org/crowdint/cfp.svg?branch=master)](https://travis-ci.org/crowdint/cfp)
+
 
 [![Code Climate](https://codeclimate.com/github/crowdint/cfp/badges/gpa.svg)](https://codeclimate.com/github/crowdint/cfp)
 
